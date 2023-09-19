@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   #this creates a root_url
   root 'static_pages#home'
 
@@ -13,5 +15,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :account_activations, only: [:edit]
-
+  #gets the RESTful links
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
